@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Commenting App</title>
+	</head>
+	<body>
+		<h1>Commenting App</h1>
+		<h3>Logged in as {{ current_user.username }}</h3>
+		<!-- logout button -->
+		<form action="{% url 'logout' %}" method="POST">
+			<button type="submit">Logout</button>
+		</form>
+
+		<!-- comment form TODO -->
+		<form action="{% url '' %}" >
+			
+		</form>
+
+		<!-- display comments -->
+		{% if comments %}
+			<ul>
+				{% for comment in comments %}
+				<li>
+					<p><strong>From {{comment.author.username}}: </strong></p>
+					<p>{{ comment.text }}</p>
+					<form>
+						<!-- like button with counter -->
+						<button type="submit">Likes ({{comment.like_count}})</button>
+					</form>
+				</li>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<p>No comments yet.</p>
+		{% endif %}
+
+	</body>
+</html>
