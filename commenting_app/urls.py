@@ -22,11 +22,17 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('comments/', views.commentpage, name='commentpage'),
+    path('comments/', views.commentpage, name='commentpage'), # comment posting/rendering url
+
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), 
-        name='login'),
+        name='login'), # url for rendering the login page
+
     path('logout/', auth_views.LogoutView.as_view(next_page='login'), 
         name='logout'),
-    path('signup/', ),
+
+    path('signup/', views.signup, name='signup'), 
+    # didnt finish here but this url would've rendered the form for creating a new user
+
     path('', RedirectView.as_view(url='/login/')),
+    # this would redirect the default path to the login page
 ]

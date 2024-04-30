@@ -5,7 +5,10 @@
 <body>
     <h1>Login</h1>
 
+    <!-- basic login form, should've just looked into the default django one -->
+
     {% if form.errors %}
+        <!-- displays if there was a login error -->
         <p>Invalid username or password.</p>
     {% endif %}
 
@@ -22,6 +25,7 @@
         <button type="submit">Login</button>
     </form>
 
+    <!-- go to the signup page if you don't have an account -->
     <p>Or <a href="{% url 'signup' %}">register</a>.</p>
 </body>
 </html>

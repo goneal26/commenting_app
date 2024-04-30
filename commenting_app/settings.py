@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'commenting_app.apps.CommentingConfig',
+    'commenting.apps.CommentingConfig', # import commenting app
 ]
 
 MIDDLEWARE = [

@@ -6,6 +6,7 @@
 	<body>
 		<h1>Commenting App</h1>
 		<h3>Logged in as {{ current_user.username }}</h3>
+		
 		<!-- logout button -->
 		<form action="{% url 'logout' %}" method="POST">
 			<button type="submit">Logout</button>
@@ -13,14 +14,15 @@
 
 		<!-- comment form TODO -->
 		<form action="{% url '' %}" >
-			
+			<!-- would have had a text area box and a submit button for posting the comment -->
 		</form>
 
 		<!-- display comments -->
-		{% if comments %}
+		{% if comments %} <!-- (if there are any) -->
 			<ul>
 				{% for comment in comments %}
 				<li>
+					<!-- iterate through comments in database, display their author, text, and like counts -->
 					<p><strong>From {{comment.author.username}}: </strong></p>
 					<p>{{ comment.text }}</p>
 					<form>
@@ -31,7 +33,7 @@
 				{% endfor %}
 			</ul>
 		{% else %}
-			<p>No comments yet.</p>
+			<p>No comments yet.</p> <!-- displayed if there are no comments in db -->
 		{% endif %}
 
 	</body>
